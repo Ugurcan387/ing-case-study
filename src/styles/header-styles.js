@@ -58,7 +58,17 @@ export const headerStyles = css`
         margin-right: 6px;
     }
 
-    .custom-header .right .button-text {
-        
+    @media(max-width: 750px) {
+        .custom-header .right .button {
+            margin-right: 0;
+        }
+
+        .custom-header .right .button-text {
+            display: none;
+        }
+
+        .custom-header .left .text {
+            display: none;
+        }
     }
 `

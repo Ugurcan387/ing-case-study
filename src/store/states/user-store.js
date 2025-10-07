@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { USER_ACTIONS } from "../actionsTypes";
 
-import { deepCopy } from "../../utils/utils";
-import { createUniqueString } from "../../utils/utils";
+import { deepCopy, createUniqueString } from "../../utils/utils";
 
 const update = (state, action) => {
     const newState = deepCopy(state);

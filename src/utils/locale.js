@@ -6,5 +6,5 @@ import {sourceLocale, targetLocales} from '../localization/locale-codes';
 export const {getLocale, setLocale} = configureLocalization({
     sourceLocale,
     targetLocales,
-    loadLocale: (locale) => import(`./src/localization/locales/${locale}.js`),
+    loadLocale: (locale) => import(`../localization/locales/${locale}.js`),
   });

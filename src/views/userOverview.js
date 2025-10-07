@@ -33,6 +33,7 @@ export class UserOverview extends connect(store)(LitElement) {
         displayData: {type: Array},
         select: {type: Object},
         currentPage: {type: Number},
+        pageSize: {type: Number},
         totalPages: {type: Number},
         deleteId: {type: String},
         showDeletePopup: {type: Boolean},
@@ -57,7 +58,8 @@ export class UserOverview extends connect(store)(LitElement) {
         }, {});
 
         this.currentPage = 1;
-        this.totalPages = Math.ceil(this.filteredData.length / PAGE_SIZE);
+        this.pageSize = 10;
+        this.totalPages = Math.ceil(this.filteredData.length / this.pageSize);
         this.displayData = this._getPageData(this.currentPage);
         this.deleteId = '';
         this.showDeletePopup = false;
@@ -80,7 +82,6 @@ export class UserOverview extends connect(store)(LitElement) {
     updated(updatedProperties) {
         if (updatedProperties.has('data')) {
             this._search({detail: {value: this.searchValues}});
-            
         }
         if (updatedProperties.has('filteredData')) {
             this.select = this.filteredData.reduce((accumulator, entry) => {
@@ -88,7 +89,7 @@ export class UserOverview extends connect(store)(LitElement) {
                 return accumulator;
             }, {});
 
-            this.totalPages = Math.ceil(this.filteredData.length / PAGE_SIZE);
+            this.totalPages = Math.ceil(this.filteredData.length / this.pageSize);
             this.displayData = this._getPageData(this.currentPage);
         }
     }
@@ -193,7 +194,7 @@ export class UserOverview extends connect(store)(LitElement) {
     }
 
     _getPageData(page) {
-        return this.filteredData.slice((page - 1) * PAGE_SIZE, (page * PAGE_SIZE));
+        return this.filteredData.slice((page - 1) * this.pageSize, (page * this.pageSize));
     }
 
     _edit(event) {

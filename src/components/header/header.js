@@ -13,9 +13,9 @@ import '../icons/add-icon.js';
 import { headerStyles } from '../../styles/header-styles';
 import { globalStyles } from '../../styles/global-style';
 
-import INGImage from './ing.png';
-import TRImage from './tr.png';
-import UKImage from './uk.png';
+const INGImage = new URL('./ing.png', import.meta.url).href;
+const TRImage  = new URL('./tr.png',  import.meta.url).href;
+const UKImage  = new URL('./uk.png',  import.meta.url).href;
 
 const ADD_ROUTE = '/add';
 const HOME_ROUTE = '/';

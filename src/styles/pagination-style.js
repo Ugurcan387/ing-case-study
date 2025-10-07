@@ -74,4 +74,16 @@ export const paginationStyles = css`
         color: #fff;
         background-color: #ff995c;
     }
+
+    @media(max-width: 750px) {
+        .pagination {
+            gap: 6px;
+        }
+
+        .pagination .page {
+            font-size: 16px;
+            width: 25px;
+            height: 25px;
+        }
+    }
 `

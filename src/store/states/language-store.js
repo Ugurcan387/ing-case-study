@@ -11,6 +11,7 @@ const update = (state, action) => {
     switch(action.payload.type) {
         case LANGUAGE_ACTIONS.CHANGE:
             newState.language = action.payload.value;
+            console.log(newState.language)
             setLocale(newState.language);
     }
 
