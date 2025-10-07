@@ -21,6 +21,10 @@
 - `View/Create/Update/Delete Employees`
 - `Search` - you can search users on overview page
 
+## Test
+- After installation simply run 'npm run test'
+- To see coverage you can check ./coverage/index.html
+
 ## Project Structure
 ``` bash
 ├─── index.html
